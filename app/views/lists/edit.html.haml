@@ -1,0 +1,4 @@
+%h1 Editar la lista
+=form_for(@list) do |l|
+  =l.text_field :name
+  =l.submit :editar, {class: "btn btn-primary btn-xs"}

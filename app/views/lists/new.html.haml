@@ -1,0 +1,4 @@
+%h1 Nueva Lista
+=form_for(@list) do |l|
+  =l.text_field :name
+  =l.submit :crear, {class: "btn btn-primary btn-xs"}
