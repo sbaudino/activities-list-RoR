@@ -1,5 +1,17 @@
-%h1 Nueva Tarea
+%h1 Nueva Tarea de la lista #{@list.name}
 =form_for([@list, @list.tasks.build]) do |t|
-  =t.text_field :name
-  =t.text_field :date
-  =t.submit :crear, {class: "btn btn-primary btn-xs"}
+  %ul{style: "list-style:none"}
+    %li
+      =t.label(:name, "Nombre")
+    %li
+      =t.text_field :name
+    %li
+      =t.label(:date, "Fecha limite")
+    %li
+      =t.text_field :date
+    %li
+      =t.label(:active, 'Activa')
+    %li
+      =t.check_box :active
+    %li
+      =t.submit :crear, {class: "btn btn-primary btn-xs"}

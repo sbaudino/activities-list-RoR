@@ -30,6 +30,7 @@ gem 'haml'
 gem 'haml-rails', :group => :development
 gem "less-rails"
 gem 'twitter-bootstrap-rails'
+gem 'byebug'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

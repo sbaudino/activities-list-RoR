@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'login#index'
+  root 'lists#index'
   resources :lists, except: [:show] do
     resources :tasks
   end

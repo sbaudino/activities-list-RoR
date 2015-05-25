@@ -1,0 +1,7 @@
+%ul
+  - if(@tasks.empty?)
+    %p This list does not have tasks
+  - else
+    - @tasks.each do |t|
+      %li
+        =t.name

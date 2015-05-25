@@ -1,10 +1,19 @@
 class TasksController < ApplicationController
-  def new
-    @list = List.find(params[:list_id])
+  before_action :find_list, only: [:index, :new, :create]
+  
+  def index
+    @tasks = @list.tasks.where(active: true)
   end
   
-  def create
-    
+  def new
+  end
+  
+  def create   
+    if @list.tasks.create(task_params)
+      redirect_to lists_path
+    else
+      render 'new'
+    end
   end
   
   def destroy
@@ -13,6 +22,10 @@ class TasksController < ApplicationController
   
   private
   def task_params
-    params.require(:taks).permit(:name, :date, :active)
+    params.require(:task).permit(:name, :date, :active)
+  end
+  
+  def find_list
+    @list = List.find(params[:list_id])
   end
 end
