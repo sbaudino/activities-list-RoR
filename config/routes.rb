@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'lists#index'
+  get 'singup'  => 'users#new'
+    
   resources :lists, except: [:show] do
     resources :tasks
   end

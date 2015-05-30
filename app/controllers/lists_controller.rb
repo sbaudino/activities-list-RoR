@@ -3,6 +3,7 @@ class ListsController < ApplicationController
   
   def index
     @list = List.all
+    flash[:success] = 'TEST'
   end
   
   def new
