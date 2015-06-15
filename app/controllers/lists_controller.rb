@@ -1,8 +1,10 @@
 class ListsController < ApplicationController
+  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :find_list, only: [:edit, :update, :destroy]
   
   def index
-    @list = List.all
+    @lists = current_user.lists if logged_in?
+    render layout: 'lists_sidebar'
   end
   
   def new
@@ -10,12 +12,17 @@ class ListsController < ApplicationController
   end
   
   def create
-    @list = List.new(list_params)
- 
-    if @list.save
-      redirect_to lists_path
-    else
-      render 'new'
+    @list = current_user.lists.build(list_params)
+    respond_to do |format|
+      if @list.save
+        @lists = current_user.lists
+        format.html { redirect_to root_path }
+        format.js
+      else
+        error_block = -> { render :new  }
+        format.html &error_block
+        format.js &error_block
+      end
     end
   end
   
@@ -32,8 +39,7 @@ class ListsController < ApplicationController
   
   def destroy
     @list.destroy
- 
-    redirect_to lists_path
+    @lists = current_user.lists
   end
   
   private

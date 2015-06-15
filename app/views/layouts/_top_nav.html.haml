@@ -1,0 +1,14 @@
+.navbar-header
+  %button{:type=>"button", :class=>"navbar-toggle", :data=>{:toggle=>"collapse"}, :data=>{:target=>".navbar-ex1-collapse"}}
+    %span.sr-only Toggle navigation
+    %span.icon-bar
+    %span.icon-bar
+    %span.icon-bar
+  =link_to 'ToDoList', root_path, class: 'navbar-brand'
+
+%ul.nav.navbar-right.top-nav
+  =render 'users/top_nav_data'
+        
+<!-- navigation modal -->
+#modal-window.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel2", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog

@@ -1,5 +1,1 @@
-%h1 Nueva Lista
-=form_for(@list) do |l|
-  =l.label(:name, "Nombre")
-  =l.text_field :name
-  =l.submit :crear, {class: "btn btn-primary btn-xs"}
+= render 'shared/page', partial: 'new_box'

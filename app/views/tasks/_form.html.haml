@@ -1,0 +1,21 @@
+=form_for([@list, @list.tasks.build], remote: is_a_modal?) do |t|
+  = render 'shared/error_messages', object: t.object
+
+  =t.label :name, class: 'control-label'
+  =t.text_field :name, class: 'form-control'
+  
+  =t.label :date,  "Expiration Date", {class: 'control-label'}
+  =t.text_field :date, {:class => "datepicker form-control", "readonly" => "readonly"}
+  
+  =t.label :active, class: "checkbox inline" do
+    =t.check_box :active
+    %span Active?
+  
+  =t.submit class: 'btn btn-primary'
+  
+:javascript  
+  $(document).ready(function($) {  
+    $('.datepicker').datepicker(
+      { dateFormat: 'yy-mm-dd' }
+    );
+  });

@@ -1,0 +1,7 @@
+=form_for(@list, remote: is_a_modal?) do |l|
+  = render 'shared/error_messages', object: l.object
+  
+  =l.label :name, class: 'control-label'
+  =l.text_field :name, class: 'form-control'
+  
+  =l.submit class: 'btn btn-primary'

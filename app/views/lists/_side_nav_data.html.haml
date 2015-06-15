@@ -1,0 +1,9 @@
+-if logged_in?
+  %li
+    =link_to new_list_path, remote: true, :'data-toggle' => 'modal',
+                                       :'data-target' => '#modal-window',
+                                       class: 'btn-success highlight-li' do
+      %span.highlight-li
+        %i.fa.fa-fw.fa-plus-circle
+        New List
+  =render @lists.sort { |a,b| a.name.downcase <=> b.name.downcase }

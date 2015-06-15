@@ -1,4 +1,5 @@
 class List < ActiveRecord::Base
   has_many :tasks, dependent: :destroy
-  validates :name, presence: true, length: {minimum: 4}
+  belongs_to :user
+  validates :name, presence: true
 end

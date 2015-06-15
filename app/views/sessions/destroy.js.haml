@@ -1,0 +1,3 @@
+$(".top-nav").html("#{escape_javascript(render 'users/top_nav_data')}");
+$(".side-nav").html("#{escape_javascript(render 'lists/side_nav_data')}");
+$("#page-wrapper").html("#{escape_javascript(render template: 'lists/index')}");

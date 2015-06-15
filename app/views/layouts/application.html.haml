@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %titleToDoList
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    #alerts
+      =render 'shared/flash_messages'
+    #overlay
+      .spinner
+        .double-bounce1
+        .double-bounce2
+  
+    #wrapper
+      %nav{:class=>"navbar navbar-inverse navbar-fixed-top", :role=>"navigation"}
+        =render 'layouts/top_nav'
+        -if content_for?(:sidebar)
+          = yield(:sidebar)
+      #page-wrapper
+        = yield

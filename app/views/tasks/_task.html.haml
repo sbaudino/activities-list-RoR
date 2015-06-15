@@ -1,7 +1,24 @@
-%ul
-  - if(@tasks.empty?)
-    %p This list does not have tasks
-  - else
-    - @tasks.each do |t|
-      %li
-        =t.name
+.content-task
+  =link_to new_list_task_path(@list), remote: true, :'data-toggle' => 'modal',
+                                       :'data-target' => '#modal-window',
+                                       class: 'btn btn-success list-action' do
+    %span.highlight-li
+      %i.fa.fa-fw.fa-plus-circle
+      New Task
+  =link_to list_path(@list), remote: true, method: :delete, data: { confirm: 'Are you sure?' },
+                                       class: 'btn btn-danger list-action' do
+    %span.highlight-li
+      %i.fa.fa-fw.fa-minus-circle
+      Delete List
+  .tasks
+    -if @tasks.empty?
+      %p The list does not have tasks
+    -else
+      -@tasks.each do |t|
+        %fieldset
+          Name:
+          %p
+            =t.name
+          Expiration date:
+          %p
+            =t.date

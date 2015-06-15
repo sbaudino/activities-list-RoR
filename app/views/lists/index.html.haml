@@ -1,4 +1,17 @@
-%div{class: "content"}
-  =link_to "Nueva Lista", new_list_path, class: "btn btn-primary btn-xs"
-  =render @list 
-%div{class: "tasks"}
+.content-index
+  -if logged_in?
+    %p
+      Welcome #{current_user.name}!
+      %br
+      Click on the list you want to add new tasks or just view the current tasks.
+  -else
+    %p 
+      Welcome to ToDoList!
+      %br
+      If you already have an account
+      =link_to "click here", login_path, remote: true, :'data-toggle' => 'modal', :'data-target' => '#modal-window'
+      to log in!
+      %br
+      If you don't have an account yet
+      =link_to "click here", new_user_path, remote: true, :'data-toggle' => 'modal', :'data-target' => '#modal-window'
+      to sing up now!
