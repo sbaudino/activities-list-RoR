@@ -15,10 +15,13 @@
       %p The list does not have tasks
     -else
       -@tasks.each do |t|
-        %fieldset
-          Name:
-          %p
-            =t.name
-          Expiration date:
-          %p
-            =t.date
+        %form
+          %fieldset
+            %legend
+              =t.name
+            Name:
+            %p
+              =t.name
+            Expiration date:
+            %p
+              =t.date
