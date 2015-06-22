@@ -18,16 +18,16 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'haml'
+# Use ActiveModel has_secure_password
+gem 'bcrypt', '~> 3.1.7'
+gem 'jquery-ui-rails'
+gem "font-awesome-rails"
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
-	gem 'haml'
 	gem 'byebug'
-	# Use ActiveModel has_secure_password
-	gem 'bcrypt', '~> 3.1.7'
-	gem 'jquery-ui-rails'
-	gem "font-awesome-rails"
-	gem 'will_paginate'
-  gem 'bootstrap-will_paginate'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 end
